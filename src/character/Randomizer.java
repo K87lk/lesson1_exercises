@@ -4,18 +4,16 @@ import java.util.Random;
 
 public class Randomizer {
     private Character character;
+    private String[] names = {"John", "Nick", "Erick", "Chris", "Bob", "Will"};
+    private String[] weapons = {"pistol", "shotgun",
+            "machine gun", "grenade", "rocket launcher", "machete"};
+    private int[] damages = {21,10,34,98, 100, 230, 300,130};
     public Character randomize(Character[] characters) {
-        for (Character character: characters) {
-            if(character.getDamage() > 50 && character.getDamage() < 80)
-                return new Character("John", "pistol", 90);
-            else if (character.getDamage() < 50) {
-                return new Character("Sam", "gunshot", 120);
-            } else if (character.getDamage() > 80 && character.getDamage() < 100) {
-                return new Character("Nick", "hammer", 50);
-            } else if (character.getDamage() > 100 && character.getDamage() < 120) {
-                return new Character("Jack", "grenade launcher", 500);
-            }
-        }
-        return null;
+       Random random = new Random();
+       int index = random.nextInt(names.length);
+       int index2 = random.nextInt(weapons.length);
+       int index3 = random.nextInt(damages.length);
+
+        return new Character(names[index], weapons[index2], damages[index3]);
         }
     }
